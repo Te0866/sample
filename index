@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Hide mobile by default */
+        .mobile-ui {
+            display: none;
+        }
+
+        /* ===== DESKTOP ===== */
+        .desktop-ui {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+
+            .desktop-ui {
+                display: none;
+            }
+
+            .mobile-ui {
+                display: block;
+            }
+
+            .mobile-header {
+                background: #333;
+                color: white;
+                padding: 15px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .mobile-content {
+                padding: 20px;
+            }
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- DESKTOP UI -->
+<div class="desktop-ui">
+
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <p>Dashboard</p>
+        <p>Profile</p>
+        <p>Settings</p>
+    </div>
+
+    <div class="content">
+        <h1>Desktop Dashboard</h1>
+
+        <button onclick="showMessage()">
+            Click Me
+        </button>
+
+        <p id="desktop-result"></p>
+    </div>
+
+</div>
+<!-- MOBILE UI -->
+<div class="mobile-ui">
+
+    <div class="mobile-header">
+        <h3>My App</h3>
+        <button onclick="alert('Menu Opened')">☰</button>
+    </div>
+
+    <div class="mobile-content">
+
+        <h2>Mobile Dashboard</h2>
+
+        <button onclick="showMessage()">
+            Tap Me
+        </button>
+
+        <p id="mobile-result"></p>
+
+    </div>
+
+</div>
+
+<script>
+
+function showMessage() {
+
+    const message = "Data saved successfully!";
+
+    const desktop = document.getElementById("desktop-result");
+    const mobile = document.getElementById("mobile-result");
+
+    if (desktop) desktop.textContent = message;
+    if (mobile) mobile.textContent = message;
+}
+
+</script>
+
+</body>
+</html>
